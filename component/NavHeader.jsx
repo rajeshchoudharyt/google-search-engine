@@ -13,7 +13,7 @@ export default function NavHeader() {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 	return (
-		<header className="flex px-3 py-2 h-14 lg:h-[4.5rem]">
+		<header className="flex px-3 py-3 h-14 lg:h-[4.5rem]">
 			<nav className="grid grid-cols-3 lg:grid-cols-2 w-full items-center justify-end">
 				<>
 					<Image
