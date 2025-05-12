@@ -8,17 +8,10 @@ import SearchResult from "@/component/SearchResult";
 import { redirect, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export const dynamic = "force-dynamic";
-
 export default function Search() {
-	const params = useSearchParams();
-	if (!params.get("query")) redirect("/");
-
 	const [data, setData] = useState([]);
 	const [selectedTab, setSelectedTab] = useState(0);
-	const [query, setQuery] = useState(
-		params.get("query") ? params.get("query") : ""
-	);
+	const [query, setQuery] = useState("");
 
 	const getResult = async () => {
 		const result = await search(query, selectedTab);
@@ -26,6 +19,11 @@ export default function Search() {
 	};
 
 	useEffect(() => {
+		const params = useSearchParams();
+		if (!params.get("query")) redirect("/");
+
+		setQuery((prev) => params.get("query"));
+
 		getResult();
 	}, []);
 
