@@ -6,7 +6,9 @@ import SearchBar, { search } from "@/component/Searchbar";
 import SearchResult from "@/component/SearchResult";
 
 import { redirect, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
+export const dynamic = "force-dynamic";
 
 export default function Search() {
 	const params = useSearchParams();
@@ -34,14 +36,12 @@ export default function Search() {
 	return (
 		<div>
 			<NavHeader />
-			<Suspense>
-				<SearchBar
-					query={query}
-					setQuery={setQuery}
-					setData={setData}
-					selectedTab={selectedTab}
-				/>
-			</Suspense>
+			<SearchBar
+				query={query}
+				setQuery={setQuery}
+				setData={setData}
+				selectedTab={selectedTab}
+			/>
 			<div className="flex max-lg:flex-col w-full">
 				<div className="lg:min-w-40 lg:max-w-40">
 					<CategoryTabs
