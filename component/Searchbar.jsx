@@ -73,7 +73,7 @@ export default function SearchBar(
 }
 
 const headers = new Headers();
-headers.append("X-API-KEY", process.env.SERPER_API_KEY);
+headers.append("X-API-KEY", process.env.NEXT_PUBLIC_SERPER_API_KEY);
 headers.append("Content-Type", "application/json");
 
 export async function search(query = "", selectedTab) {
