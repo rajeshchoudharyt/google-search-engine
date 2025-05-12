@@ -32,27 +32,25 @@ export default function Search() {
 	}, [selectedTab]);
 
 	return (
-		<Suspense>
-			<div>
-				<NavHeader />
+		<div>
+			<NavHeader />
+			<Suspense>
 				<SearchBar
 					query={query}
 					setQuery={setQuery}
 					setData={setData}
 					selectedTab={selectedTab}
 				/>
-				<div className="flex max-lg:flex-col w-full">
-					<div className="lg:min-w-40 lg:max-w-40">
-						<CategoryTabs
-							selectedIndex={selectedTab}
-							setSelectedIndex={setSelectedTab}
-						/>
-					</div>
-					<div className="">
-						{data && <SearchResult data={data} />}
-					</div>
+			</Suspense>
+			<div className="flex max-lg:flex-col w-full">
+				<div className="lg:min-w-40 lg:max-w-40">
+					<CategoryTabs
+						selectedIndex={selectedTab}
+						setSelectedIndex={setSelectedTab}
+					/>
 				</div>
+				<div className="">{data && <SearchResult data={data} />}</div>
 			</div>
-		</Suspense>
+		</div>
 	);
 }
