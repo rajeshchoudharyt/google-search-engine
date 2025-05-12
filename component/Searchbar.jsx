@@ -35,8 +35,10 @@ export default function SearchBar(
 
 	return (
 		<div
-			className="lg:absolute lg:top-0 lg:left-40 flex items-center max-w-xl w-full h-12 p-3 gap-x-1 border-[1px]
-					 border-[#dfe1e5] rounded-full m-3">
+			className={`${
+				path !== "/" && "lg:absolute lg:top-0 lg:left-40"
+			} flex items-center max-w-xl w-full h-12 p-3 gap-x-1 border-[1px]
+					 border-[#dfe1e5] rounded-full m-3`}>
 			<Image
 				src={searchIcon}
 				alt="icon"
