@@ -39,7 +39,7 @@ export default function SearchResult({ data }) {
 							</div>
 						</a>
 				  ))
-				: "No result"}
+				: category !== "images" && "No result"}
 
 			{category === "images" && (
 				<div className="flex gap-4 max-w-full flex-wrap">

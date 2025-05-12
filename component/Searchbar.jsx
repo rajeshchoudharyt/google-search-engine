@@ -50,7 +50,7 @@ export default function SearchBar(
 				<Input
 					name="search_query"
 					type="text"
-					className="w-full px-2 py-1 text-sm leading-3 outline-none"
+					className="w-full px-2 py-1 text-sm leading-3 outline-none bg-white"
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
 					ref={ref}

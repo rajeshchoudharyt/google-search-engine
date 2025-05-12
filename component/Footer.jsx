@@ -8,7 +8,7 @@ const roboto = Roboto({
 export default function Footer() {
 	return (
 		<footer
-			className={`fixed bottom-0 w-full bg-[#f2f2f2] text-sm text-[#8ba2b1] gap-y-1 
+			className={`relative bottom-0 w-full bg-[#f2f2f2] text-sm text-[#8ba2b1] gap-y-1 
 								flex flex-col items-center py-1 ${roboto.className}`}>
 			<ul className="flex gap-x-7 py-1 px-2">
 				<li>
