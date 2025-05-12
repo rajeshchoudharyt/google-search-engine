@@ -6,7 +6,7 @@ import SearchBar, { search } from "@/component/Searchbar";
 import SearchResult from "@/component/SearchResult";
 
 import { redirect, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 export default function Search() {
 	const params = useSearchParams();
@@ -32,23 +32,27 @@ export default function Search() {
 	}, [selectedTab]);
 
 	return (
-		<div>
-			<NavHeader />
-			<SearchBar
-				query={query}
-				setQuery={setQuery}
-				setData={setData}
-				selectedTab={selectedTab}
-			/>
-			<div className="flex max-lg:flex-col w-full">
-				<div className="lg:min-w-40 lg:max-w-40">
-					<CategoryTabs
-						selectedIndex={selectedTab}
-						setSelectedIndex={setSelectedTab}
-					/>
+		<Suspense>
+			<div>
+				<NavHeader />
+				<SearchBar
+					query={query}
+					setQuery={setQuery}
+					setData={setData}
+					selectedTab={selectedTab}
+				/>
+				<div className="flex max-lg:flex-col w-full">
+					<div className="lg:min-w-40 lg:max-w-40">
+						<CategoryTabs
+							selectedIndex={selectedTab}
+							setSelectedIndex={setSelectedTab}
+						/>
+					</div>
+					<div className="">
+						{data && <SearchResult data={data} />}
+					</div>
 				</div>
-				<div className="">{data && <SearchResult data={data} />}</div>
 			</div>
-		</div>
+		</Suspense>
 	);
 }
